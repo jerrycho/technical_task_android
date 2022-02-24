@@ -1,0 +1,100 @@
+plugins {
+    id 'com.android.application'
+    id 'kotlin-android'
+    id 'kotlin-kapt'
+    id 'kotlin-parcelize'
+    id 'androidx.navigation.safeargs.kotlin'
+    id 'dagger.hilt.android.plugin'
+}
+
+android {
+    compileSdk 31
+
+    defaultConfig {
+        applicationId "com.sliide.task"
+        minSdk 21
+        targetSdk 31
+        versionCode 1
+        versionName "1.0"
+
+//        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner "com.sliide.task.app.SliideInstrumentationRunner"
+
+        buildConfigField "String", "BASE_URL", "\"https://gorest.co.in\""
+        buildConfigField "String", "TOKEN", "\"f339e858ced382f710f89434c228008958e39f8c105b4cfad32e15e50e30f659\""
+    }
+
+    buildTypes {
+        debug {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            debuggable true
+        }
+        release {
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            debuggable false
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+    dataBinding {
+        enabled true
+    }
+    buildFeatures {
+        viewBinding true
+    }
+}
+
+dependencies {
+
+    implementation "androidx.core:core-ktx:$androidx_core_ktx_version"
+    implementation "androidx.appcompat:appcompat:$appcompat_version"
+    implementation "androidx.lifecycle:lifecycle-runtime-ktx:$lifecycle_version"
+    implementation "com.google.android.material:material:$material_version"
+    implementation "androidx.swiperefreshlayout:swiperefreshlayout:$swiperefresh_layout_version"
+    implementation "com.google.android.material:material:$material_version"
+    implementation "androidx.constraintlayout:constraintlayout:$constraint_layout_version"
+    implementation "androidx.recyclerview:recyclerview:$recyclerview_version"
+
+    // Networking
+    implementation "com.squareup.retrofit2:retrofit:$retrofit_version"
+    implementation "com.squareup.retrofit2:converter-gson:$retrofit_gson_convertor"
+    implementation "com.squareup.okhttp3:logging-interceptor:$retrofit_logging_interceptor"
+
+
+    // Dependency injection
+    implementation "com.google.dagger:hilt-android:$hilt_version"
+    kapt "com.google.dagger:hilt-compiler:$hilt_version"
+
+
+    // Navigation
+    implementation "androidx.navigation:navigation-fragment-ktx:$nav_version"
+    implementation "androidx.navigation:navigation-ui-ktx:$nav_version"
+
+
+    // Testing
+    testImplementation "junit:junit:$junit_junit_version"
+    testImplementation "org.mockito.kotlin:mockito-kotlin:$mockito_version_kotlin"
+    testImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:$coroutines_version"
+
+    androidTestImplementation "androidx.test.espresso:espresso-core:$espresso_core_version"
+    androidTestImplementation "androidx.arch.core:core-testing:$androidx_core_test"
+    androidTestImplementation "androidx.test.ext:junit:$junit_x_ext"
+    androidTestImplementation "androidx.test:rules:$testx_rules"
+
+    androidTestImplementation "com.google.dagger:hilt-android-testing:$hilt_version"
+    kaptAndroidTest "com.google.dagger:hilt-android-compiler:$hilt_version"
+
+    //mock server
+    androidTestImplementation "com.squareup.okhttp3:mockwebserver:$mockwebserver_version"
+
+    //test flow
+    testImplementation "app.cash.turbine:turbine:$turbine_version"
+}

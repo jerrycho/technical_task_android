@@ -1,0 +1,26 @@
+<resources>
+    <string name="app_name">sliide</string>
+    <string name="name">Name</string>
+    <string name="email">Email</string>
+    <string name="gender">Gender</string>
+    <string name="status">Status</string>
+
+    <string name="time_out_error">Timeout, please try later</string>
+    <string name="unknown_host_error">Please check your network connection</string>
+
+    <string name="confirm_remove_user">Are you sure you want to remove this user?</string>
+    <string name="create_user">Create user</string>
+    <string name="hint_name">@string/name</string>
+    <string name="hint_email">@string/email</string>
+
+    <string name="error_304">The resource was not modified. You can use the cached version.</string>
+    <string name="error_400">Bad request. This could be caused by various actions by the user, such as providing invalid JSON data in the request body etc.</string>
+    <string name="error_401">Authentication failed.</string>
+    <string name="error_403">The authenticated user is not allowed to access the specified API endpoint.</string>
+    <string name="error_405">Method not allowed. Please check the Allow header for the allowed HTTP methods.</string>
+    <string name="error_415">Unsupported media type. The requested content type or version number is invalid.</string>
+    <string name="error_429">Too many requests. The request was rejected due to rate limiting.</string>
+    <string name="error_500">Internal server error. This could be caused by internal program errors.</string>
+    <string name="unknown_error">Unknown Error</string>
+
+</resources>
