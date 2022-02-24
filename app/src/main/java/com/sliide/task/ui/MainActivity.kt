@@ -16,25 +16,9 @@ import com.sliide.task.R
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var progressBar: ProgressBar
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
-        progressBar = findViewById(R.id.progressBar)
-    }
-
-    open fun showLoading(show: Boolean) {
-        if (show)
-            progressBar.visibility = View.VISIBLE
-        else
-            progressBar.visibility = View.GONE
-    }
-
-
-    open fun showTitlabarBackIcon(show: Boolean){
-        supportActionBar?.setDisplayHomeAsUpEnabled(show)
     }
 
     //click "<" on app bar

@@ -99,7 +99,6 @@ class UserListViewModel
                 val data = mIoScope.async {
                     return@async mNetworkRepository.createUser(newUser)
                 }.await()
-                println(data?.code)
                 if (data?.code != null && (data?.code==CREATE_USER_OK || data?.code==CREATE_USER_FAIL)) {
                     if (data.code == CREATE_USER_OK) {//success
                         val myList = userList.toMutableList()
