@@ -279,4 +279,9 @@ class UserListFragment: Fragment(R.layout.fragment_user_list){
                 .show()
         }
     }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
 }
